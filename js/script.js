@@ -10,15 +10,16 @@ for (var i = 0; i < 5; i++) {
 
 alert('Memorizza questi 5 numeri: ' + numbers);
 
-var j = 5;
+var k = 5;
+console.log(k);
 countdown = setInterval(function () {
-  if ( j > 0 ) {
-    console.log(j);
+  --k;
+  if ( k > 0 ) {
+    console.log(k);
   } else {
     console.log('tempo scaduto');
     clearInterval(countdown);
   }
-  j--;
 }, 1000);
 
 setTimeout( function () {
@@ -29,13 +30,13 @@ setTimeout( function () {
 
   for (var i = 0; i < 5; i++) {
     while ( isNaN(userNum) ) {
-      userNum = parseInt( prompt('Inserisci un ' + i + '° numero') );
+      userNum = parseInt( prompt('Inserisci un ' + (i + 1) + '° numero') );
       if ( isNaN(userNum) ) {
         alert( userNum + ' non è un valore numerico');
       }
     }
-    for (var i = 0; i < 5; i++) {
-      if ( userNum == numbers[i] ) {
+    for (var j = 0; j < 5; j++) {
+      if ( userNum == numbers[j] ) {
         guessCount += 1;
         guessedNums.push(userNum);
       }
