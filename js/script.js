@@ -1,27 +1,36 @@
-var numbers = [];
+// Dichiarzaione variabili globali
+var numbers = [],
+    waitingTime = 5;
 
+// Dichiarazione funzione per generare un numero casuale
 function genRandomNum( max, min ) {
   return Math.floor( Math.random() * (max - min + 1) ) + min;
 }
 
+//Dichiarazione funzione countdown
+function countdownSeconds ( i ) {
+  console.log(i);
+  countdown = setInterval(function () {
+    --i;
+    if ( i > 0 ) {
+      console.log(i);
+    } else {
+      console.log('tempo scaduto');
+      clearInterval(countdown);
+    }
+  }, 1000);
+}
+
+// Creazione array di numeri da indovinare
 for (var i = 0; i < 5; i++) {
   numbers.push(genRandomNum( 100, 1 ));
 }
 
+// Messaggio output
 alert('Memorizza questi 5 numeri: ' + numbers);
-
-var k = 5;
-console.log(k);
-countdown = setInterval(function () {
-  --k;
-  if ( k > 0 ) {
-    console.log(k);
-  } else {
-    console.log('tempo scaduto');
-    clearInterval(countdown);
-  }
-}, 1000);
-
+//Console cowntdown
+countdownSeconds(waitingTime);
+//
 setTimeout( function () {
 
   var guessCount = 0,
@@ -48,4 +57,4 @@ setTimeout( function () {
   } else {
     alert('Hai indovinato ' + guessCount + ' numeri\nNumeri indovinati: ' + guessedNums )
   }
-}, 5000);
+}, waitingTime*1000);
