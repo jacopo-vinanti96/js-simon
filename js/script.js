@@ -1,5 +1,6 @@
 // Dichiarzaione variabili globali
 var numbers = [],
+    numbersOutput = [],
     waitingTime = 5;
 
 // Dichiarazione funzione per generare un numero casuale
@@ -26,8 +27,13 @@ for (var i = 0; i < 5; i++) {
   numbers.push(genRandomNum( 100, 1 ));
 }
 
+// Generazione array di output
+for ( var i = 0; i < numbers.length; i++ ) {
+numbersOutput.push( " " + numbers[i] );
+}
+
 // Messaggio output
-alert('Memorizza questi 5 numeri: ' + numbers);
+alert('Memorizza questi 5 numeri: ' + numbersOutput);
 //Console cowntdown
 countdownSeconds(waitingTime);
 //Si imposta un delay per la funzione
@@ -57,7 +63,7 @@ setTimeout( function () {
     for (var j = 0; j < 5; j++) {
       if ( userNum == numbers[j] ) {
         guessCount += 1;
-        guessedNums.push(userNum);
+        guessedNums.push( " " + userNum );
       }
     }
   }
