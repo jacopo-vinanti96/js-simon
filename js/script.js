@@ -29,6 +29,7 @@ setTimeout( function () {
       userNum;
 
   for (var i = 0; i < 5; i++) {
+    userNum = ('NaN');
     while ( isNaN(userNum) ) {
       userNum = parseInt( prompt('Inserisci un ' + (i + 1) + '° numero') );
       if ( isNaN(userNum) ) {
