@@ -35,15 +35,23 @@ setTimeout( function () {
 
   var guessCount = 0,
       guessedNums = [],
-      userNum;
+      userNum,
+      userArray = [];
 
   for (var i = 0; i < 5; i++) {
-    userNum = ('NaN');
+    userNum = 'NaN';
     while ( isNaN(userNum) ) {
       userNum = parseInt( prompt('Inserisci un ' + (i + 1) + '° numero') );
-      if ( isNaN(userNum) ) {
-        alert( userNum + ' non è un valore numerico');
+      if ( isNaN(userNum) ){
+        alert('Il valore inserito non è un numero');
       }
+      for (var j = 0; j < userArray.length; j++) {
+        if ( userNum == userArray[j] ) {
+          alert('Hai già inserito quel numero');
+          userNum = 'NaN';
+        }
+      }
+      userArray[i] = userNum;
     }
     for (var j = 0; j < 5; j++) {
       if ( userNum == numbers[j] ) {
