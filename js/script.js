@@ -30,14 +30,14 @@ for (var i = 0; i < 5; i++) {
 alert('Memorizza questi 5 numeri: ' + numbers);
 //Console cowntdown
 countdownSeconds(waitingTime);
-//
+//Si imposta un delay per la funzione
 setTimeout( function () {
-
+// Dichiarazione variabili locali
   var guessCount = 0,
       guessedNums = [],
       userNum,
       userArray = [];
-
+// Ciclo per inserire il numero con controlli
   for (var i = 0; i < 5; i++) {
     userNum = 'NaN';
     while ( isNaN(userNum) ) {
@@ -53,6 +53,7 @@ setTimeout( function () {
       }
       userArray[i] = userNum;
     }
+    // Ciclo per salvare i numeri indovinati
     for (var j = 0; j < 5; j++) {
       if ( userNum == numbers[j] ) {
         guessCount += 1;
@@ -60,6 +61,7 @@ setTimeout( function () {
       }
     }
   }
+  // Messaggi ouput
   if ( guessCount == 0) {
     alert('Mi dispiace, non hai indovinato nessun numero');
   } else {
