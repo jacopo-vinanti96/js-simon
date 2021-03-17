@@ -24,7 +24,10 @@ function countdownSeconds ( i ) {
 
 // Creazione array di numeri da indovinare
 for (var i = 0; i < 5; i++) {
-  numbers.push(genRandomNum( 100, 1 ));
+  var randomNum = genRandomNum( 100, 1 );
+  if ( numbers.includes(randomNum) == false ) {
+    numbers.push(randomNum);
+  }
 }
 
 // Generazione array di output
@@ -45,8 +48,11 @@ setTimeout( function () {
       userArray = [];
 // Ciclo per inserire il numero con controlli
   for (var i = 0; i < 5; i++) {
+
     userNum = 'NaN';
+
     while ( isNaN(userNum) ) {
+
       userNum = parseInt( prompt('Inserisci un ' + (i + 1) + '° numero') );
       if ( isNaN(userNum) ){
         alert('Il valore inserito non è un numero');
